@@ -10,6 +10,8 @@ import pickle
 
 # TCPClient Utils
 def connect_client(addr=('127.0.0.1',9999)):
+    addr=('127.0.0.1',9999)
+    print "Estou testando socketetetetete#################"
     clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     clientsocket.connect(addr)
     return clientsocket

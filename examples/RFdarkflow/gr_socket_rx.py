@@ -15,7 +15,7 @@ radio_metadata = {
     'ncols':104,
     'nrows':104,
     'n_avgs':80,
-    'sample_rate':20.0e6
+    'sample_rate':23.04e6
 }
 
 class DarkflowClientFlowGraph(gr.top_block):
@@ -24,14 +24,14 @@ class DarkflowClientFlowGraph(gr.top_block):
 
         # params
         self.yaml_config = yaml_config
-        sample_rate = 20.0e6
+        sample_rate = 23.04e6
         centre_freq = 2.3e9
         gaindB = 21#30
         fftsize = 104
         n_avgs = radio_metadata['n_avgs']
         ncols = radio_metadata['ncols']
         nrows = radio_metadata['nrows']
-        addr = ('134.226.55.55',9999)
+        addr = ('127.0.0.1',9999) #'134.226.55.55',9999)
 
         # flowgraph blocks
         self.usrp_source = uhd.usrp_source(
