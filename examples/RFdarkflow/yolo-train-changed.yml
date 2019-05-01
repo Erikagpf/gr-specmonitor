@@ -1,0 +1,21 @@
+dataset:
+  dataset_folder: ~/repo/dataset/RFVOCFormat/
+  tmp_folder: ../../tmp/darkflow_generated_files
+
+model:
+  model_path: ./yolo-model-changed.cfg
+  train:
+    total_epochs: 50000
+    gpu: 0.6  
+  height: 104
+  width: 104
+  find_anchors: False
+  num_anchors: 6
+  classes:
+    - wifi
+    - lte
+darkflow:
+        batch: 16
+        lr: 1.0e-4
+        trainer: adam
+        threshold: 0.9
