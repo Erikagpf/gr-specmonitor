@@ -41,6 +41,7 @@ def setup_darkflow_files(cfg_obj):
     if cfg_model['find_anchors']==True:
         voc_tools.setup_darknet_dataset(cfg_obj)
         darknet_scripts.write_anchors_from_yml_params(cfg_obj)
+        
 
 def darkflow_parse_config(cfg_obj):
     def add_optional(options,obj,name):
@@ -59,7 +60,7 @@ def darkflow_parse_config(cfg_obj):
     }
     cfg_train = cfg_obj.model_params()['train']
 
-    # parse darkflow args directly
+    #parse darkflow args directly
     for k,v in cfg_obj.cfg_params['darkflow'].items():
         yaml_options[k] = v
 
@@ -77,7 +78,7 @@ class DarkflowTrainer:
         # get dataset info
         from darkflow.utils.pascal_voc_clean_xml import pascal_voc_clean_xml
         dumps = pascal_voc_clean_xml(self.base_options['annotation'], self.base_options['labels'], False)
-        #tfnet = TFNet(self.base_options)
+        #tfnet = TFNet(self.base_options)It was commented
         #self.dataset_size = len(tfnet.framework.parse())
         self.dataset_size = len(dumps)
         self.steps_per_epoch = self.dataset_size/self.batch_size
@@ -114,7 +115,7 @@ class DarkflowTrainer:
         else:
             self.lr_steps = [float(i) for i in self.cfg_train.get('lr',[1.0e-5])]
         assert len(self.lr_steps)==len(self.train_steps)
-        #self.momentum_steps = [float(i) for i in self.cfg_train.get('momentum',[0.0]*len(self.train_steps))]
+        #self.momentum_steps = [float(i) for i in self.cfg_train.get('momentum',[0.0]*len(self.train_steps))]#it was commented
 
         # parse the args
         if args.trainer is not None:
@@ -123,7 +124,7 @@ class DarkflowTrainer:
             self.base_options['gpu'] = float(args.gpu)
 
     def train_phase(self):
-        phase_idx = [i for i in range(len(self.train_steps)) if self.train_steps[i]<=self.current_epoch][-1]
+        phase_idx =  [i for i in range(len(self.train_steps)) if self.train_steps[i]<=self.current_epoch][-1]        
         lr = self.lr_steps[phase_idx]
         upper_epoch = self.train_steps[phase_idx+1] if phase_idx<len(self.train_steps)-1 else self.total_epochs
         number_of_epochs = upper_epoch - self.current_epoch
