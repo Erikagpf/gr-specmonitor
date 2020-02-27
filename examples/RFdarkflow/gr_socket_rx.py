@@ -26,7 +26,7 @@ class DarkflowClientFlowGraph(gr.top_block):
         radio_metadata['frequency'] = freq
         self.yaml_config = yaml_config
         sample_rate = 23.04e6
-        centre_freq = freq
+        centre_freq = freq 
         gaindB = 21#30
         fftsize = 104
         n_avgs = radio_metadata['n_avgs']

@@ -1,0 +1,21 @@
+dataset:
+  dataset_folder: ../../../erika-first-model/new-2tx
+  tmp_folder: ../../../erika-first-model/new-2tx
+  
+model:
+  model_path: ./yolo-model-2tx.cfg
+  train:
+    total_epochs: 50000
+    gpu: 0.7  
+  height: 104
+  width: 104
+  find_anchors: false
+  num_anchors: 10
+  classes:
+    - wifi
+    - lte
+darkflow:
+        batch: 32
+        lr: 1.0e-5
+       
+        

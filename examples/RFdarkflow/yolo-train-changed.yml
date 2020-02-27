@@ -1,21 +1,21 @@
 dataset:
-  dataset_folder: ~/repo/dataset/RFVOCFormat/
-  tmp_folder: ../../tmp/darkflow_generated_files
+  dataset_folder: ../../../erika-first-model/snr/snr/model-400/
+  tmp_folder: ../../../erika-first-model/snr/snr/model-400/
 
 model:
-  model_path: ./yolo-model-changed.cfg
+  model_path: ./yolo-model-snr.cfg
   train:
     total_epochs: 50000
-    gpu: 0.6  
+    gpu: 0.7  
   height: 104
   width: 104
-  find_anchors: False
-  num_anchors: 6
+  find_anchors: false
+  num_anchors: 2
   classes:
     - wifi
     - lte
 darkflow:
-        batch: 16
-        lr: 1.0e-4
+        batch: 2
+        lr: 1.0e-5
         trainer: adam
-        threshold: 0.9
+        

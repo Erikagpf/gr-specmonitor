@@ -208,7 +208,7 @@ class tracked_peak:
         return cls(tidx,xcorr,xautocorr,cfo,preamble_mag2,awgn_mag2_nodc,dc_offset)
 
 class PreambleDetectorType2:
-    def __init__(self, fparams, autocorr_margin=None, thres1=0.08, thres2=0.04):#params, awgn_len):
+    def __init__(self, fparams, autocorr_margin=None, thres1=0.04, thres2=0.01):#params, awgn_len):8/4
         self.frame_params = fparams
         self.thres1 = thres1
         self.thres2 = thres2

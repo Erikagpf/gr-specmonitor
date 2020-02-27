@@ -29,6 +29,8 @@
 #include <algorithm>
 #include <numeric>
 
+
+
 using namespace gr::blocks::pdu;
 
 namespace gr {
@@ -121,12 +123,32 @@ namespace gr {
             for(int i = 0; i < d_img_size; ++i) {
               d_mag2_sum[i] = 10*log10(d_mag2_sum[i]/d_n_avgs);
             }
-
+            
             // normalize spectrogram
+            std::string someString = "###############################";
+            printf("%s\n",someString.c_str());
             float min_val = *std::min_element(&d_mag2_sum[0], &d_mag2_sum[d_img_size]);
+            printf( "%6.4lf", min_val );
             float max_val = *std::max_element(&d_mag2_sum[0], &d_mag2_sum[d_img_size]);
+            printf( "%6.4lf", max_val );
+            printf("%s\n",someString.c_str());
             for(int i = 0; i < d_img_size; ++i)
               d_mag2_byte[i] = (d_mag2_sum[i]-min_val)*255/(max_val-min_val);
+            //print in a file
+            
+
+            FILE *fp;
+            char* str = "string";
+            int x = 10;
+
+            fp=fopen("saida_db.txt", "w");
+            if(fp == NULL)
+                exit(-1);
+            fprintf(fp, "This is a string which is written to a file\n");
+            fprintf(fp, "The string has %d words and keyword %s\n", x, str);
+            fclose(fp);
+
+
             // unsigned int max_i;
             // volk_32f_index_max_16u(&max_i, &d_mag2_sum[0], d_mag2_sum.size());
             // max_val = 10*log10(max_val);

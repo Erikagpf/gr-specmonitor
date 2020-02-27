@@ -23,7 +23,9 @@ def generate_psd(this_run_params):
     # plot
     PSD = np.abs(np.fft.fftshift(np.fft.fft(x)))**2
     PSDdB = 10*np.log10(PSD)
-
+    print "#################################"
+    print PSDdB
+    print "#################################"
     # save figure
     fig, ax = plt.subplots( nrows=1, ncols=1 )  # create figure & 1 axis
     ax.plot(PSDdB)

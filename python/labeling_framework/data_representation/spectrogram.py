@@ -197,7 +197,12 @@ class SectionSpectrogramMetadata(object):
             with warnings.catch_warnings(): # ignore log10(zero) warning
                 warnings.simplefilter("ignore")
                 Sxx = 10*np.log10(Sxx)
+	#f= open("tentando_fft.txt",'w')	
+	#f.write("##############################")
+	#f.write(x)
+	#f.close()
         Sxx = normalize_spectrogram(Sxx,nan_val)
+
         if Sxx.shape!=self.img_size():
             logger.error('These were the shapes:{},{}'.format(Sxx.shape,self.img_size()))
             raise AssertionError('Mismatch in spectrogram dimensions: {}!={}. Your section had a duration of {} although it should have {}.'.format(Sxx.shape,self.img_size(),section.size,self.section_duration()))

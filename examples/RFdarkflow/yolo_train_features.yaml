@@ -1,0 +1,18 @@
+dataset:
+  dataset_folder: ../../../erika-first-model/features-final/frames/Images
+  tmp_folder: ../../../erika-first-model/features-final/model-400
+
+model:
+  model_path: ./yolo-model-features.cfg
+  train:
+    total_epochs: 50000
+    gpu: 0.7
+  height: 104
+  width: 104
+  find_anchors: false
+  num_anchors: 5
+  classes:
+    - lte
+darkflow:
+        batch: 2
+        lr: 1.0e-5

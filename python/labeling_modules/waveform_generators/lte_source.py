@@ -261,7 +261,7 @@ class LTEDLGenerator(lf.SignalGenerator):
             try:
                 run(args)
             except RuntimeError, e:
-                logger.warning('Failed to generate the waveform data for WiFi. Going to rerun. Arguments: {}'.format(args))
+                logger.warning('Failed to generate the waveform data for LTE. Going to rerun. Arguments: {}'.format(args))
                 continue
             except KeyError, e:
                 logger.error('The input arguments do not seem valid. They were {}'.format(args))

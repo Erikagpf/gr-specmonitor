@@ -1,0 +1,21 @@
+dataset:
+  dataset_folder: ../../../erika-first-model/dataset/general_imec_label/400-just-real
+  tmp_folder: ../../../erika-first-model/trained_model_real/2-just-real
+
+model:
+  model_path: ./yolo-model-real.cfg
+  train:
+    total_epochs: 100000
+    gpu: 0.7
+  height: 104
+  width: 104
+  find_anchors: false
+  num_anchors: 5
+  classes:
+    - wifi
+    - lte
+darkflow:
+        batch: 2
+        lr: 1.0e-5
+
+        

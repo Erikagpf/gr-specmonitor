@@ -343,8 +343,8 @@ def debug_freq_bound_finder(X,Xcentre,left_bound,right_bound):
 #     return (b for b in box_list if b.time_intersection(section_interv)!=None)
 
 # # This function adds a time and freq offset
-# def add_offset(box_list,toffset=0,foffset=0):
-#     return (b.add(toffset,foffset) for b in box_list)
+def add_offset(box_list,toffset=0,foffset=0):
+    return (b.add(toffset,foffset) for b in box_list)
 
 # # This function intersects the boxes with the boundaries of the time section, so nothing leaks
 # def intersect_boxes_with_section(box_list,section_interv):
